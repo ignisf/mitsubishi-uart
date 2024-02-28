@@ -220,6 +220,10 @@ void MitsubishiUART::processPacket(const StatusGetResponsePacket &packet) {
         // If the mode hasn't changed, but the temps are equal, we can assume the same action and make no change.
         // If the unit overshoots, this still doesn't work.
         break;
+      case climate::CLIMATE_MODE_OFF:
+      case climate::CLIMATE_MODE_FAN_ONLY:
+      case climate::CLIMATE_MODE_AUTO:
+        break;
     }
   }
   // If we're not operating (but not off or in fan mode), we're idle

@@ -40,6 +40,13 @@ void MitsubishiUART::control(const climate::ClimateCall &call) {
       set_fan_mode_(climate::CLIMATE_FAN_AUTO);
       setRequestPacket.setFan(SettingsSetRequestPacket::FAN_AUTO);
       break;
+    case climate::CLIMATE_FAN_ON:
+    case climate::CLIMATE_FAN_OFF:
+    case climate::CLIMATE_FAN_MIDDLE:
+    case climate::CLIMATE_FAN_FOCUS:
+    case climate::CLIMATE_FAN_DIFFUSE:
+      // no-op
+      break;
   }
 
   // Mode
